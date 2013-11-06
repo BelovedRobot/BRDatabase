@@ -7,11 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "BRDatabase.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    BRDatabase *database = [BRDatabase sharedBRDatabase];
+    [database initializeWithDatabaseName:@"Test.sql" withDatabaseVersion:1.0];
+    
     // Override point for customization after application launch.
     return YES;
 }
