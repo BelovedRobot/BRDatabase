@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CEBD1B02-85EE-4B42-8089-9E4B27F464E4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BRDatabase</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E11FD3C2-7746-4E4D-A415-38FE1C4198DD</key>
+		<string>https://github.com/BelovedRobot/BRDatabase.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BRDatabase.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E11FD3C2-7746-4E4D-A415-38FE1C4198DD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/BelovedRobot/BRDatabase.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E11FD3C2-7746-4E4D-A415-38FE1C4198DD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E11FD3C2-7746-4E4D-A415-38FE1C4198DD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BRDatabase</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -22,10 +22,10 @@
 		CB1E97E21829352100EB6ED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E97C11829352100EB6ED5 /* UIKit.framework */; };
 		CB1E97EA1829352100EB6ED5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97E81829352100EB6ED5 /* InfoPlist.strings */; };
 		CB1E97EC1829352100EB6ED5 /* BRDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E97EB1829352100EB6ED5 /* BRDatabaseTests.m */; };
-		CB1E97FC1829363300EB6ED5 /* 1_10_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97F61829363300EB6ED5 /* 1_10_upgrade.sql */; };
-		CB1E97FD1829363300EB6ED5 /* BRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E97F81829363300EB6ED5 /* BRDatabase.m */; };
-		CB1E97FE1829363300EB6ED5 /* DatabaseInstall.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97F91829363300EB6ED5 /* DatabaseInstall.sql */; };
-		CB1E97FF1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E97FB1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.m */; };
+		CB4A5754182D663600A0DFAC /* BRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4A5751182D663600A0DFAC /* BRDatabase.m */; };
+		CB4A5755182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */; };
+		CB4A5758182D669300A0DFAC /* 1_10_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */; };
+		CB4A5759182D669300A0DFAC /* DatabaseInstall.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */; };
 		D113A45025D241BD94353A82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B1556CBE694CE6BC5D2A8D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,12 +62,12 @@
 		CB1E97E71829352100EB6ED5 /* BRDatabaseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BRDatabaseTests-Info.plist"; sourceTree = "<group>"; };
 		CB1E97E91829352100EB6ED5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB1E97EB1829352100EB6ED5 /* BRDatabaseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRDatabaseTests.m; sourceTree = "<group>"; };
-		CB1E97F61829363300EB6ED5 /* 1_10_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 1_10_upgrade.sql; path = ../../FMDB_CocoaPods/FMDB_CocoaPods/1_10_upgrade.sql; sourceTree = "<group>"; };
-		CB1E97F71829363300EB6ED5 /* BRDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRDatabase.h; path = ../../FMDB_CocoaPods/FMDB_CocoaPods/BRDatabase.h; sourceTree = "<group>"; };
-		CB1E97F81829363300EB6ED5 /* BRDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BRDatabase.m; path = ../../FMDB_CocoaPods/FMDB_CocoaPods/BRDatabase.m; sourceTree = "<group>"; };
-		CB1E97F91829363300EB6ED5 /* DatabaseInstall.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DatabaseInstall.sql; path = ../../FMDB_CocoaPods/FMDB_CocoaPods/DatabaseInstall.sql; sourceTree = "<group>"; };
-		CB1E97FA1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+BRDatabaseExtensions.h"; path = "../../FMDB_CocoaPods/FMDB_CocoaPods/FMDatabase+BRDatabaseExtensions.h"; sourceTree = "<group>"; };
-		CB1E97FB1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+BRDatabaseExtensions.m"; path = "../../FMDB_CocoaPods/FMDB_CocoaPods/FMDatabase+BRDatabaseExtensions.m"; sourceTree = "<group>"; };
+		CB4A5750182D663600A0DFAC /* BRDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRDatabase.h; path = BRDatabase/BRDatabase.h; sourceTree = "<group>"; };
+		CB4A5751182D663600A0DFAC /* BRDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BRDatabase.m; path = BRDatabase/BRDatabase.m; sourceTree = "<group>"; };
+		CB4A5752182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+BRDatabaseExtensions.h"; path = "BRDatabase/FMDatabase+BRDatabaseExtensions.h"; sourceTree = "<group>"; };
+		CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+BRDatabaseExtensions.m"; path = "BRDatabase/FMDatabase+BRDatabaseExtensions.m"; sourceTree = "<group>"; };
+		CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1_10_upgrade.sql; sourceTree = "<group>"; };
+		CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DatabaseInstall.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,8 @@
 		CB1E97B11829352100EB6ED5 = {
 			isa = PBXGroup;
 			children = (
-				CB1E97C31829352100EB6ED5 /* BRDatabase */,
+				CB4A574F182D65AA00A0DFAC /* BRDatabase */,
+				CB1E97C31829352100EB6ED5 /* BRDatabase_Example */,
 				CB1E97E51829352100EB6ED5 /* BRDatabaseTests */,
 				CB1E97BC1829352100EB6ED5 /* Frameworks */,
 				CB1E97BB1829352100EB6ED5 /* Products */,
@@ -127,11 +128,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB1E97C31829352100EB6ED5 /* BRDatabase */ = {
+		CB1E97C31829352100EB6ED5 /* BRDatabase_Example */ = {
 			isa = PBXGroup;
 			children = (
 				CB1E98001829363A00EB6ED5 /* Scripts */,
-				CB1E97F51829355400EB6ED5 /* Framework */,
 				CB1E97CC1829352100EB6ED5 /* AppDelegate.h */,
 				CB1E97CD1829352100EB6ED5 /* AppDelegate.m */,
 				CB1E97CF1829352100EB6ED5 /* Main_iPhone.storyboard */,
@@ -141,6 +141,7 @@
 				CB1E97D81829352100EB6ED5 /* Images.xcassets */,
 				CB1E97C41829352100EB6ED5 /* Supporting Files */,
 			);
+			name = BRDatabase_Example;
 			path = BRDatabase;
 			sourceTree = "<group>";
 		};
@@ -173,24 +174,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CB1E97F51829355400EB6ED5 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				CB1E97FA1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.h */,
-				CB1E97FB1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.m */,
-				CB1E97F71829363300EB6ED5 /* BRDatabase.h */,
-				CB1E97F81829363300EB6ED5 /* BRDatabase.m */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
 		CB1E98001829363A00EB6ED5 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				CB1E97F91829363300EB6ED5 /* DatabaseInstall.sql */,
-				CB1E97F61829363300EB6ED5 /* 1_10_upgrade.sql */,
+				CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */,
+				CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		CB4A574F182D65AA00A0DFAC /* BRDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				CB4A5750182D663600A0DFAC /* BRDatabase.h */,
+				CB4A5751182D663600A0DFAC /* BRDatabase.m */,
+				CB4A5752182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.h */,
+				CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */,
+			);
+			name = BRDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +274,10 @@
 			files = (
 				CB1E97D41829352100EB6ED5 /* Main_iPad.storyboard in Resources */,
 				CB1E97D91829352100EB6ED5 /* Images.xcassets in Resources */,
-				CB1E97FC1829363300EB6ED5 /* 1_10_upgrade.sql in Resources */,
+				CB4A5758182D669300A0DFAC /* 1_10_upgrade.sql in Resources */,
 				CB1E97D11829352100EB6ED5 /* Main_iPhone.storyboard in Resources */,
+				CB4A5759182D669300A0DFAC /* DatabaseInstall.sql in Resources */,
 				CB1E97C81829352100EB6ED5 /* InfoPlist.strings in Resources */,
-				CB1E97FE1829363300EB6ED5 /* DatabaseInstall.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,11 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB1E97FD1829363300EB6ED5 /* BRDatabase.m in Sources */,
 				CB1E97D71829352100EB6ED5 /* ViewController.m in Sources */,
+				CB4A5754182D663600A0DFAC /* BRDatabase.m in Sources */,
+				CB4A5755182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m in Sources */,
 				CB1E97CE1829352100EB6ED5 /* AppDelegate.m in Sources */,
 				CB1E97CA1829352100EB6ED5 /* main.m in Sources */,
-				CB1E97FF1829363300EB6ED5 /* FMDatabase+BRDatabaseExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
