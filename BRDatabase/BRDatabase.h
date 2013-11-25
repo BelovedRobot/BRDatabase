@@ -22,8 +22,9 @@
 @property (nonatomic, retain) NSString *databasePath;
 @property (nonatomic, retain) NSString *databaseName;
 @property (nonatomic) double databaseVersion;
+@property (nonatomic, retain) NSArray *databaseVersionHistory;
 
 + (id)sharedBRDatabase;
-- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion;
+- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion withVersionHistory:(NSArray *)databaseVersionHistory;
 
 @end

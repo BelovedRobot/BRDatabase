@@ -13,8 +13,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Database Versions
+    NSArray *versions = @[
+                          [NSNumber numberWithDouble:1.0],
+                          [NSNumber numberWithDouble:1.1]
+                         ];
+    
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Test2.sql" withDatabaseVersion:1.1];
+    [database initializeWithDatabaseName:@"Test1.sql" withDatabaseVersion:1.1 withVersionHistory:versions];
     
     // Override point for customization after application launch.
     return YES;

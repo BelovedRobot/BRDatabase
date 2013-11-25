@@ -6,18 +6,19 @@
 //  Copyright (c) 2013 Beloved Robot LLC. All rights reserved.
 //
 // Implementation Notes: There are several specific things that must be done to properly upgrade a database using this framework.
-// 1) Your database should be defined in a script titled "DatabaseInstall.sql"
-//   1.1) There should be a table called "Version" that has a databaseVersion INT column.
+// 1) There should be a folder titled "Scripts" in the project that will be deployed when the app is bundled/installed.
+// 2) Your database should be defined in a script titled "DatabaseInstall.sql"
+//   2.1) There should be a table called "Version" that has a databaseVersion INT column.
 //        Example Script: CREATE TABLE Version (versionId INTEGER PRIMARY KEY ASC, databaseVersion INT, description TEXT);
-// 2) The variables in this file should specify which target version the application is expecting.
-//   2.1) Set the databaseVersion property to the version the application is expecting.
-//   2.2) When upgrading, add the version to the array defined in getDatabaseVersionHistory.
-// 3) The actual upgrade script should be included in this project.
-//   3.1) Each version of the database should include a database script with the file name format
+// 3) The variables in this file should specify which target version the application is expecting.
+//   3.1) Set the databaseVersion property to the version the application is expecting.
+//   3.2) When upgrading, add the version to the array defined in getDatabaseVersionHistory.
+// 4) The actual upgrade script should be included in this project.
+//   4.1) Each version of the database should include a database script with the file name format
 //        "<major version>_<minor version><revision>_upgrade.sql".
 //        Example Script: To upgrade the database to version 1.2.3 the script would be "1_23_upgrade.sql".
-//   3.2) The minor version and revision only support single digits, 0 - 9.
-//   3.3) The script files should be set to be copied into bundled resources.
+//   4.2) The minor version and revision only support single digits, 0 - 9.
+//   4.3) The script files should be set to be copied into bundled resources.
 //
 
 #import "BRDatabase.h"
@@ -31,15 +32,7 @@
 @synthesize databasePath = _databasePath;
 @synthesize databaseName = _databaseName;
 @synthesize databaseVersion = _databaseVersion;
-
-// This method returns a "constant" list of versions. If you version the database add
-// the version number in sequence here.
-- (NSArray *)getDatabaseVersionHistory {
-    return @[
-                [NSNumber numberWithDouble:1.0],
-                [NSNumber numberWithDouble:1.1]
-            ];
-}
+@synthesize databaseVersionHistory = _databaseVersionHistory;
 
 + (id)sharedBRDatabase {
     static BRDatabase *sharedBRDatabase = nil;
@@ -50,27 +43,30 @@
     return sharedBRDatabase;
 }
 
-- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion {
+- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion withVersionHistory:(NSArray *)databaseVersionHistory {
     // 1 - Set Version
     _databaseVersion = databaseVersion;
     
-    // 2 - Get path of database file
+    // 2 - Set Version History
+    _databaseVersionHistory = databaseVersionHistory;
+    
+    // 3 - Get path of database file
     _databasePath = [self getDatabasePathWithDatabaseName:databaseName];
     
-    // 3 - See if the database exists then create FMDatabase instance
+    // 4 - See if the database exists then create FMDatabase instance
     _database = [self initializeFMDatabaseInstance];
     
-    // 4 - Check version
+    // 5 - Check version
     double actualDatabaseVersion;
     bool needsToUpgrade = [self databaseDoesNeedUpgradeFromVersion:&actualDatabaseVersion];
 
     if (!needsToUpgrade)
         return;
     
-    // 5 - Detarmine which versions are necessary for upgrade
+    // 6 - Detarmine which versions are necessary for upgrade
     NSArray *versionsNeeded = [self getVersionsToUpgradeToFromOldVersion:actualDatabaseVersion];
     
-    // 6 - Iterate versions and execute upgrades
+    // 7 - Iterate versions and execute upgrades
     [self executeUpgradesWithVersions:versionsNeeded];
 }
 
@@ -140,7 +136,7 @@
 - (NSArray *)getVersionsToUpgradeToFromOldVersion:(double)oldVersion {
     NSMutableArray *versionsNeeded = [[NSMutableArray alloc] init];
     
-    for (NSNumber *version in [self getDatabaseVersionHistory]) {
+    for (NSNumber *version in _databaseVersionHistory) {
         if (oldVersion < [version doubleValue]) {
             [versionsNeeded addObject:version];
         }
