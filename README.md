@@ -43,6 +43,6 @@ An array of NSNumber/s is required when initializing your database. These number
 			];
 
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.0 withVersionHistory:versions];
+    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1 withVersionHistory:versions];
 ```
 
