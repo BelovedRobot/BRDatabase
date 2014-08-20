@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name         	= 'BRDatabase'
   s.version      	= '0.1.0'
-  s.summary      	= 'This framework is an extension of FMDB that provides versioning for database upgrades. pod 'BRDatabase' , '~> 0.1.0''
+  s.summary      	= 'This framework is an extension of FMDB that provides versioning for database upgrades.'
   s.homepage     	= 'https://github.com/BelovedRobot/BRDatabase'
   s.license      	= { :type => 'MIT', :file => 'LICENSE' }
   s.authors      	= { 'Beloved Robot LLC' => 'belovedrobot@gmail.com', 'Zane Kellog' => 'zane@belovedrobot.com' }
@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.source_files 	= 'BRDatabase/BRDatabase.{h,m}', 'BRDatabase/FMDatabase+BRDatabaseExtensions.{h,m}'
   s.exclude_files	= 'Podfile'
   s.dependency 'FMDB', '~> 2.0'
+  s.requires_arc = true
 
 end
