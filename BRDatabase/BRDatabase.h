@@ -17,14 +17,14 @@
 
 @interface BRDatabase : NSObject
 
-@property (atomic, retain) FMDatabase *database;
-@property (atomic, retain) FMDatabaseQueue *databaseQueue;
-@property (nonatomic, retain) NSString *databasePath;
-@property (nonatomic, retain) NSString *databaseName;
-@property (nonatomic) double databaseVersion;
-@property (nonatomic, retain) NSArray *databaseVersionHistory;
+@property (strong) FMDatabase *database;
+@property (strong) FMDatabaseQueue *databaseQueue;
+@property (strong) NSString *databasePath;
+@property (strong) NSString *databaseName;
+@property float databaseVersion;
+@property (strong) NSDictionary *scripts;
 
 + (id)sharedBRDatabase;
-- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion withVersionHistory:(NSArray *)databaseVersionHistory;
+- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion;
 
 @end

@@ -17,27 +17,14 @@
 		CB1E97D41829352100EB6ED5 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97D21829352100EB6ED5 /* Main_iPad.storyboard */; };
 		CB1E97D71829352100EB6ED5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E97D61829352100EB6ED5 /* ViewController.m */; };
 		CB1E97D91829352100EB6ED5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97D81829352100EB6ED5 /* Images.xcassets */; };
-		CB1E97E01829352100EB6ED5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E97DF1829352100EB6ED5 /* XCTest.framework */; };
-		CB1E97E11829352100EB6ED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E97BD1829352100EB6ED5 /* Foundation.framework */; };
-		CB1E97E21829352100EB6ED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1E97C11829352100EB6ED5 /* UIKit.framework */; };
-		CB1E97EA1829352100EB6ED5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB1E97E81829352100EB6ED5 /* InfoPlist.strings */; };
-		CB1E97EC1829352100EB6ED5 /* BRDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E97EB1829352100EB6ED5 /* BRDatabaseTests.m */; };
+		CB24B9BC19BE55CD00CA9617 /* 2_3_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB24B9BB19BE55CD00CA9617 /* 2_3_upgrade.sql */; };
+		CB24B9BE19BE55DF00CA9617 /* 1_4_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB24B9BD19BE55DF00CA9617 /* 1_4_upgrade.sql */; };
 		CB4A5754182D663600A0DFAC /* BRDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4A5751182D663600A0DFAC /* BRDatabase.m */; };
 		CB4A5755182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */; };
-		CB4A5758182D669300A0DFAC /* 1_10_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */; };
+		CB4A5758182D669300A0DFAC /* 1_1_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */; };
 		CB4A5759182D669300A0DFAC /* DatabaseInstall.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */; };
 		D113A45025D241BD94353A82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B1556CBE694CE6BC5D2A8D /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CB1E97E31829352100EB6ED5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB1E97B21829352100EB6ED5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB1E97B91829352100EB6ED5;
-			remoteInfo = BRDatabase;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3EBCB1E1FE214E20B5342C32 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -57,16 +44,14 @@
 		CB1E97D51829352100EB6ED5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CB1E97D61829352100EB6ED5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CB1E97D81829352100EB6ED5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CB1E97DE1829352100EB6ED5 /* BRDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1E97DF1829352100EB6ED5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CB1E97E71829352100EB6ED5 /* BRDatabaseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BRDatabaseTests-Info.plist"; sourceTree = "<group>"; };
-		CB1E97E91829352100EB6ED5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CB1E97EB1829352100EB6ED5 /* BRDatabaseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRDatabaseTests.m; sourceTree = "<group>"; };
+		CB24B9BB19BE55CD00CA9617 /* 2_3_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2_3_upgrade.sql; sourceTree = "<group>"; };
+		CB24B9BD19BE55DF00CA9617 /* 1_4_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1_4_upgrade.sql; sourceTree = "<group>"; };
 		CB4A5750182D663600A0DFAC /* BRDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRDatabase.h; path = BRDatabase/BRDatabase.h; sourceTree = "<group>"; };
 		CB4A5751182D663600A0DFAC /* BRDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BRDatabase.m; path = BRDatabase/BRDatabase.m; sourceTree = "<group>"; };
 		CB4A5752182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+BRDatabaseExtensions.h"; path = "BRDatabase/FMDatabase+BRDatabaseExtensions.h"; sourceTree = "<group>"; };
 		CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+BRDatabaseExtensions.m"; path = "BRDatabase/FMDatabase+BRDatabaseExtensions.m"; sourceTree = "<group>"; };
-		CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1_10_upgrade.sql; sourceTree = "<group>"; };
+		CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1_1_upgrade.sql; sourceTree = "<group>"; };
 		CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DatabaseInstall.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,16 +67,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB1E97DB1829352100EB6ED5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB1E97E01829352100EB6ED5 /* XCTest.framework in Frameworks */,
-				CB1E97E21829352100EB6ED5 /* UIKit.framework in Frameworks */,
-				CB1E97E11829352100EB6ED5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,7 +75,6 @@
 			children = (
 				CB4A574F182D65AA00A0DFAC /* BRDatabase */,
 				CB1E97C31829352100EB6ED5 /* BRDatabase_Example */,
-				CB1E97E51829352100EB6ED5 /* BRDatabaseTests */,
 				CB1E97BC1829352100EB6ED5 /* Frameworks */,
 				CB1E97BB1829352100EB6ED5 /* Products */,
 				3EBCB1E1FE214E20B5342C32 /* Pods.xcconfig */,
@@ -111,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				CB1E97BA1829352100EB6ED5 /* BRDatabase.app */,
-				CB1E97DE1829352100EB6ED5 /* BRDatabaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,29 +129,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CB1E97E51829352100EB6ED5 /* BRDatabaseTests */ = {
-			isa = PBXGroup;
-			children = (
-				CB1E97EB1829352100EB6ED5 /* BRDatabaseTests.m */,
-				CB1E97E61829352100EB6ED5 /* Supporting Files */,
-			);
-			path = BRDatabaseTests;
-			sourceTree = "<group>";
-		};
-		CB1E97E61829352100EB6ED5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CB1E97E71829352100EB6ED5 /* BRDatabaseTests-Info.plist */,
-				CB1E97E81829352100EB6ED5 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		CB1E98001829363A00EB6ED5 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				CB4A5756182D669300A0DFAC /* 1_10_upgrade.sql */,
+				CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */,
 				CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */,
+				CB24B9BB19BE55CD00CA9617 /* 2_3_upgrade.sql */,
+				CB24B9BD19BE55DF00CA9617 /* 1_4_upgrade.sql */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -216,24 +173,6 @@
 			productReference = CB1E97BA1829352100EB6ED5 /* BRDatabase.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CB1E97DD1829352100EB6ED5 /* BRDatabaseTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB1E97F21829352100EB6ED5 /* Build configuration list for PBXNativeTarget "BRDatabaseTests" */;
-			buildPhases = (
-				CB1E97DA1829352100EB6ED5 /* Sources */,
-				CB1E97DB1829352100EB6ED5 /* Frameworks */,
-				CB1E97DC1829352100EB6ED5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB1E97E41829352100EB6ED5 /* PBXTargetDependency */,
-			);
-			name = BRDatabaseTests;
-			productName = BRDatabaseTests;
-			productReference = CB1E97DE1829352100EB6ED5 /* BRDatabaseTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,11 +181,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Beloved Robot LLC";
-				TargetAttributes = {
-					CB1E97DD1829352100EB6ED5 = {
-						TestTargetID = CB1E97B91829352100EB6ED5;
-					};
-				};
 			};
 			buildConfigurationList = CB1E97B51829352100EB6ED5 /* Build configuration list for PBXProject "BRDatabase" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -262,7 +196,6 @@
 			projectRoot = "";
 			targets = (
 				CB1E97B91829352100EB6ED5 /* BRDatabase */,
-				CB1E97DD1829352100EB6ED5 /* BRDatabaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,20 +205,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB24B9BE19BE55DF00CA9617 /* 1_4_upgrade.sql in Resources */,
 				CB1E97D41829352100EB6ED5 /* Main_iPad.storyboard in Resources */,
 				CB1E97D91829352100EB6ED5 /* Images.xcassets in Resources */,
-				CB4A5758182D669300A0DFAC /* 1_10_upgrade.sql in Resources */,
+				CB4A5758182D669300A0DFAC /* 1_1_upgrade.sql in Resources */,
 				CB1E97D11829352100EB6ED5 /* Main_iPhone.storyboard in Resources */,
+				CB24B9BC19BE55CD00CA9617 /* 2_3_upgrade.sql in Resources */,
 				CB4A5759182D669300A0DFAC /* DatabaseInstall.sql in Resources */,
 				CB1E97C81829352100EB6ED5 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB1E97DC1829352100EB6ED5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB1E97EA1829352100EB6ED5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,23 +264,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB1E97DA1829352100EB6ED5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB1E97EC1829352100EB6ED5 /* BRDatabaseTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CB1E97E41829352100EB6ED5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB1E97B91829352100EB6ED5 /* BRDatabase */;
-			targetProxy = CB1E97E31829352100EB6ED5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CB1E97C61829352100EB6ED5 /* InfoPlist.strings */ = {
@@ -378,14 +289,6 @@
 				CB1E97D31829352100EB6ED5 /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		CB1E97E81829352100EB6ED5 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB1E97E91829352100EB6ED5 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -493,48 +396,6 @@
 			};
 			name = Release;
 		};
-		CB1E97F31829352100EB6ED5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BRDatabase.app/BRDatabase";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BRDatabase/BRDatabase-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BRDatabaseTests/BRDatabaseTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		CB1E97F41829352100EB6ED5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BRDatabase.app/BRDatabase";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BRDatabase/BRDatabase-Prefix.pch";
-				INFOPLIST_FILE = "BRDatabaseTests/BRDatabaseTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -552,15 +413,6 @@
 			buildConfigurations = (
 				CB1E97F01829352100EB6ED5 /* Debug */,
 				CB1E97F11829352100EB6ED5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB1E97F21829352100EB6ED5 /* Build configuration list for PBXNativeTarget "BRDatabaseTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB1E97F31829352100EB6ED5 /* Debug */,
-				CB1E97F41829352100EB6ED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

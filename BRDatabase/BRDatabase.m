@@ -32,7 +32,7 @@
 @synthesize databasePath = _databasePath;
 @synthesize databaseName = _databaseName;
 @synthesize databaseVersion = _databaseVersion;
-@synthesize databaseVersionHistory = _databaseVersionHistory;
+@synthesize scripts = _scripts;
 
 + (id)sharedBRDatabase {
     static BRDatabase *sharedBRDatabase = nil;
@@ -43,12 +43,12 @@
     return sharedBRDatabase;
 }
 
-- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(double)databaseVersion withVersionHistory:(NSArray *)databaseVersionHistory {
+- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion {
     // 1 - Set Version
     _databaseVersion = databaseVersion;
     
-    // 2 - Set Version History
-    _databaseVersionHistory = databaseVersionHistory;
+    // 2 - Parse Script Files
+    _scripts = [self getScriptsFromBundle];
     
     // 3 - Get path of database file
     _databasePath = [self getDatabasePathWithDatabaseName:databaseName];
@@ -57,7 +57,7 @@
     _database = [self initializeFMDatabaseInstance];
     
     // 5 - Check version
-    double actualDatabaseVersion;
+    float actualDatabaseVersion;
     bool needsToUpgrade = [self databaseDoesNeedUpgradeFromVersion:&actualDatabaseVersion];
 
     if (!needsToUpgrade)
@@ -92,14 +92,14 @@
         if ([database open]) {
             NSLog(@"Opening the new db was successful");
         
-            // Look for the file "DatabaseInstall.sql"
-            NSString *installScriptPath = [[NSBundle mainBundle] pathForResource:@"DatabaseInstall" ofType:@"sql"];
-            NSString *installScript = [NSString stringWithContentsOfFile:installScriptPath encoding:NSUTF8StringEncoding error:nil];
+            // Get the Database Install
+            NSString *installScript = [self getStringFromScriptPath:[_scripts objectForKey:@"0.0"]];
             
             NSError *error;
             [database executeBatchWithSqlScript:installScript outError:&error];
-            if (error != nil)
-                NSLog(@"Updated failed with error");
+            if (error != nil) {
+                NSLog(@"Update failed with error: %@", [error localizedDescription]);
+            }
         }
         
         [database close];
@@ -111,7 +111,7 @@
 
 // This method executes a script on the current database to determine the version and then compares
 // it to the version specified by the property "databaseVersion".
-- (BOOL)databaseDoesNeedUpgradeFromVersion:(double*)actualDatabaseVersion {
+- (BOOL)databaseDoesNeedUpgradeFromVersion:(float *)actualDatabaseVersion {
     BOOL doesNeedUpgrade = false;
 
     [_database open];
@@ -121,7 +121,7 @@
     FMResultSet *result = [_database executeQuery:@"SELECT databaseVersion FROM Version ORDER BY versionID DESC LIMIT 1;"];
     if ([result next]) {
         *actualDatabaseVersion = [result doubleForColumnIndex:0];
-        NSLog(@"Database version is %.2f", *actualDatabaseVersion);
+        NSLog(@"Database version is %.1f", *actualDatabaseVersion);
         
         if (*actualDatabaseVersion < _databaseVersion)
             doesNeedUpgrade = true;
@@ -133,11 +133,17 @@
 }
 
 // This method returns an array of database versions that need to be upgraded to.
-- (NSArray *)getVersionsToUpgradeToFromOldVersion:(double)oldVersion {
-    NSMutableArray *versionsNeeded = [[NSMutableArray alloc] init];
+- (NSArray *)getVersionsToUpgradeToFromOldVersion:(float)actualVersion {
+    NSMutableArray *versionsNeeded = [NSMutableArray new];
     
-    for (NSNumber *version in _databaseVersionHistory) {
-        if (oldVersion < [version doubleValue]) {
+    // Sort the script keys (versions) in ascending order
+    NSArray *sortedKeys = [[_scripts allKeys] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [(NSString *)obj1 floatValue] > [(NSString *)obj2 floatValue];
+    }];
+    
+    for (NSString *version in sortedKeys) {
+        float candidateVersion = [version floatValue];
+        if (actualVersion < candidateVersion && candidateVersion <= _databaseVersion) {
             [versionsNeeded addObject:version];
         }
     }
@@ -145,36 +151,65 @@
     return [NSArray arrayWithArray:versionsNeeded];
 }
 
-// This method constructs the filename and path to retrieve an upgrade script
-// for a specific version.
-- (NSString*)getUpgradeScriptForVersion:(double)upgradeDatabaseVersion {
-    // To get the database upgrade script, we need to "build" the filename
-    NSString *dbVersionString = [NSString stringWithFormat:@"%.2f", upgradeDatabaseVersion];
-    NSArray *dbVersionDelimed = [dbVersionString componentsSeparatedByString:@"."];
-    NSString *dbVersion = [dbVersionDelimed firstObject];
-    NSString *dbSubVersion = [dbVersionDelimed lastObject];
-    NSString *upgradeFileName = [NSString stringWithFormat:@"%@_%@_upgrade", dbVersion, dbSubVersion];
-    
-    NSString *upgradeScriptPath = [[NSBundle mainBundle] pathForResource:upgradeFileName ofType:@"sql"];
-    return [NSString stringWithContentsOfFile:upgradeScriptPath encoding:NSUTF8StringEncoding error:nil];
-}
-
 // This method will iterate the versioning scripts and execute them.
 - (BOOL)executeUpgradesWithVersions:(NSArray*)versions {
-    for (NSNumber *version in versions) {
+    for (NSString *version in versions) {
         [_database open];
         
-        NSString *upgradeScript = [self getUpgradeScriptForVersion:[version doubleValue]];
+        NSString *upgradeScript = [self getStringFromScriptPath:[_scripts objectForKey:version]];
         
         NSError *error;
         [_database executeBatchWithSqlScript:upgradeScript outError:&error];
         if (error != nil)
-            NSLog(@"Updated failed with error");
+            NSLog(@"Update failed with error: %@", [error localizedDescription]);
         
         [_database close];
     }
     
     return true;
+}
+
+// This method parses all of the sql files in the app bundle (root) and builds a hashtable of all the versions. With 0.0 being
+// the database install.
+- (NSDictionary *)getScriptsFromBundle {
+    // Get all *.sql files
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:[[NSBundle mainBundle] bundlePath] error:nil];
+    NSPredicate *sqlPredicate = [NSPredicate predicateWithFormat:@"self ENDSWITH '.sql'"];
+    NSArray *scripts = [contents filteredArrayUsingPredicate:sqlPredicate];
+    
+    // The results
+    NSMutableDictionary *scriptPaths = [NSMutableDictionary new];
+    
+    // Parse each path
+    for (NSString *path in scripts) {
+
+        // Check for Install Script
+        NSRange range = [path rangeOfString:@"DatabaseInstall"];
+        if (range.location != NSNotFound) {
+            [scriptPaths setObject:path forKey:@"0.0"];
+            break;
+        }
+        
+        // Parse the version
+        NSArray *parts = [path componentsSeparatedByString:@"_"];
+        NSString *major = [parts objectAtIndex:0];
+        NSString *minor =[parts objectAtIndex:1];
+        
+        if (major == nil || minor == nil) {
+            break;
+        }
+        
+        [scriptPaths setObject:path forKey:[NSString stringWithFormat:@"%@.%@", major, minor]];
+    }
+
+    return [NSDictionary dictionaryWithDictionary:scriptPaths];
+}
+
+// The method simply converts the contents of the script file to a string for execution
+- (NSString *)getStringFromScriptPath:(NSString *)path {
+    NSString *bundledPath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] bundlePath], path];
+    return [NSString stringWithContentsOfFile:bundledPath encoding:NSUTF8StringEncoding error:nil];
 }
 
 @end

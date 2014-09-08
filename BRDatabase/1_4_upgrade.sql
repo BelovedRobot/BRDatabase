@@ -1,0 +1,1 @@
+INSERT INTO Version (databaseVersion, description) VALUES (1.4, 'Testing the versioning.');
