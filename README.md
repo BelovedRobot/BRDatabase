@@ -32,5 +32,5 @@ There are several specific things that must be done to properly upgrade a databa
        1.1 - Upgraded to by executing the file 1_1_upgrade.sql
     */
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1 withVersionHistory:versions];
+    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1];
 ```
