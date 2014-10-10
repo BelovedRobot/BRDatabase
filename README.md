@@ -17,7 +17,7 @@ There are several specific things that must be done to properly upgrade a databa
     Example Script: To upgrade the database to version 1.2 the script would be "1_2_upgrade.sql".  
 4) All script files should be set to be copied into bundled resources.
 
-# Issues
+### Issues
 - If you get an exception stating you have an unrecognized selector when calling executeBatch it is likely because your missing the linker flag "-all_load" in build settings for the Release configuration.
 
 ### Usage Example - Initial Install
