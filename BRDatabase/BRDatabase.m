@@ -43,7 +43,7 @@
     return sharedBRDatabase;
 }
 
-- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion {
+- (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion withSuccess:(void (^)())success {
     // 1 - Set Version
     _databaseVersion = databaseVersion;
     
@@ -59,15 +59,27 @@
     // 5 - Check version
     float actualDatabaseVersion;
     bool needsToUpgrade = [self databaseDoesNeedUpgradeFromVersion:&actualDatabaseVersion];
-
-    if (!needsToUpgrade)
+    
+    if (!needsToUpgrade) {
+        // Execute Success Block
+        if (success)
+            success();
+        
         return;
+    }
     
     // 6 - Detarmine which versions are necessary for upgrade
     NSArray *versionsNeeded = [self getVersionsToUpgradeToFromOldVersion:actualDatabaseVersion];
     
     // 7 - Iterate versions and execute upgrades
     [self executeUpgradesWithVersions:versionsNeeded];
+    
+    // 8 - Init the database queue
+    _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:_databasePath];
+    
+    // Execute Success Block
+    if (success)
+        success();
 }
 
 // This method builds the database path with name.

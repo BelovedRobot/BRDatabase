@@ -136,22 +136,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BRDatabase/BRDatabase.m"
-            timestampString = "431907766.555993"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-initializeWithDatabaseName:withDatabaseVersion:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BRDatabase/BRDatabase.m"
             timestampString = "431909587.006152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

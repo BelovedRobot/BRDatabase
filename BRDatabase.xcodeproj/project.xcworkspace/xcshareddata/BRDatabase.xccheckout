@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CEBD1B02-85EE-4B42-8089-9E4B27F464E4</string>
+	<string>B3396969-F2F9-4E82-B466-57C1C8F46DF6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BRDatabase</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/BelovedRobot/BRDatabase.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BRDatabase.xcworkspace</string>
+	<string>BRDatabase.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>087BBCA2DC66B8DA49E048EB75BAA2598AA89CB4</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/BelovedRobot/BRDatabase.git</string>
