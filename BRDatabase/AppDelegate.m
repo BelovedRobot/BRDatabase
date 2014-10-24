@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Test1.sql" withDatabaseVersion:2.3];
+    [database initializeWithDatabaseName:@"Test1.sql" withDatabaseVersion:2.3 withSuccess:nil];
     
     // Override point for customization after application launch.
     return YES;
