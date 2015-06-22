@@ -24,8 +24,18 @@ There are several specific things that must be done to properly upgrade a databa
 
 ```Objective-C
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.0];
+    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.0 withSuccess:nil];
 ```
+
+### Usage Example - Initial Install (Swift)
+
+```Swift
+    let database : BRDatabase = BRDatabase.sharedBRDatabase() as! BRDatabase
+    database.initializeWithDatabaseName("Example.sqlite", withDatabaseVersion:1.0) { () -> Void in
+        println("Database created");
+    }
+```
+
 
 ### Usage Example - Upgrade
 
@@ -35,5 +45,5 @@ There are several specific things that must be done to properly upgrade a databa
        1.1 - Upgraded to by executing the file 1_1_upgrade.sql
     */
     BRDatabase *database = [BRDatabase sharedBRDatabase];
-    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1];
+    [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1 withSuccess:nil];
 ```
