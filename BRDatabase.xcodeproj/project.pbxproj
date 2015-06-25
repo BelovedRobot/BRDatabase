@@ -23,6 +23,7 @@
 		CB4A5755182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */; };
 		CB4A5758182D669300A0DFAC /* 1_1_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */; };
 		CB4A5759182D669300A0DFAC /* DatabaseInstall.sql in Resources */ = {isa = PBXBuildFile; fileRef = CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */; };
+		CBB599241B3BA0980070F977 /* 0_1_upgrade.sql in Resources */ = {isa = PBXBuildFile; fileRef = CBB599231B3BA0980070F977 /* 0_1_upgrade.sql */; };
 		D113A45025D241BD94353A82 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B1556CBE694CE6BC5D2A8D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		CB4A5753182D663600A0DFAC /* FMDatabase+BRDatabaseExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+BRDatabaseExtensions.m"; path = "BRDatabase/FMDatabase+BRDatabaseExtensions.m"; sourceTree = "<group>"; };
 		CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1_1_upgrade.sql; sourceTree = "<group>"; };
 		CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DatabaseInstall.sql; sourceTree = "<group>"; };
+		CBB599231B3BA0980070F977 /* 0_1_upgrade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 0_1_upgrade.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,10 +134,11 @@
 		CB1E98001829363A00EB6ED5 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */,
 				CB4A5757182D669300A0DFAC /* DatabaseInstall.sql */,
-				CB24B9BB19BE55CD00CA9617 /* 2_3_upgrade.sql */,
+				CBB599231B3BA0980070F977 /* 0_1_upgrade.sql */,
+				CB4A5756182D669300A0DFAC /* 1_1_upgrade.sql */,
 				CB24B9BD19BE55DF00CA9617 /* 1_4_upgrade.sql */,
+				CB24B9BB19BE55CD00CA9617 /* 2_3_upgrade.sql */,
 			);
 			name = Scripts;
 			sourceTree = "<group>";
@@ -179,7 +182,7 @@
 		CB1E97B21829352100EB6ED5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Beloved Robot LLC";
 			};
 			buildConfigurationList = CB1E97B51829352100EB6ED5 /* Build configuration list for PBXProject "BRDatabase" */;
@@ -208,6 +211,7 @@
 				CB24B9BE19BE55DF00CA9617 /* 1_4_upgrade.sql in Resources */,
 				CB1E97D41829352100EB6ED5 /* Main_iPad.storyboard in Resources */,
 				CB1E97D91829352100EB6ED5 /* Images.xcassets in Resources */,
+				CBB599241B3BA0980070F977 /* 0_1_upgrade.sql in Resources */,
 				CB4A5758182D669300A0DFAC /* 1_1_upgrade.sql in Resources */,
 				CB1E97D11829352100EB6ED5 /* Main_iPhone.storyboard in Resources */,
 				CB24B9BC19BE55CD00CA9617 /* 2_3_upgrade.sql in Resources */,
@@ -298,7 +302,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -338,7 +341,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

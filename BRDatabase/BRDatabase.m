@@ -64,7 +64,8 @@
         // Execute Success Block
         if (success)
             success();
-        
+
+        NSLog(@"Database version is %.01f", [self getCurrentDatabaseVersion]);
         return;
     }
     
@@ -73,6 +74,8 @@
     
     // 7 - Iterate versions and execute upgrades
     [self executeUpgradesWithVersions:versionsNeeded];
+    
+    NSLog(@"Database version is %0.01f", [self getCurrentDatabaseVersion]);
     
     // 8 - Init the database queue
     _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:_databasePath];
@@ -124,24 +127,11 @@
 // This method executes a script on the current database to determine the version and then compares
 // it to the version specified by the property "databaseVersion".
 - (BOOL)databaseDoesNeedUpgradeFromVersion:(float *)actualDatabaseVersion {
-    BOOL doesNeedUpgrade = false;
 
-    [_database open];
-    
     // For each version of the database we insert a row, if the version of the latest is less than the
     // version hard specified by this file then we need an upgrade.
-    FMResultSet *result = [_database executeQuery:@"SELECT databaseVersion FROM Version ORDER BY versionID DESC LIMIT 1;"];
-    if ([result next]) {
-        *actualDatabaseVersion = [result doubleForColumnIndex:0];
-        NSLog(@"Database version is %.1f", *actualDatabaseVersion);
-        
-        if (*actualDatabaseVersion < _databaseVersion)
-            doesNeedUpgrade = true;
-    }
-    [result close];
-    [_database close];
-    
-    return doesNeedUpgrade;
+    *actualDatabaseVersion = [self getCurrentDatabaseVersion];
+    return *actualDatabaseVersion < _databaseVersion;
 }
 
 // This method returns an array of database versions that need to be upgraded to.
@@ -200,7 +190,7 @@
         NSRange range = [path rangeOfString:@"DatabaseInstall"];
         if (range.location != NSNotFound) {
             [scriptPaths setObject:path forKey:@"0.0"];
-            break;
+            continue;
         }
         
         // Parse the version
@@ -209,7 +199,7 @@
         NSString *minor =[parts objectAtIndex:1];
         
         if (major == nil || minor == nil) {
-            break;
+            continue;
         }
         
         [scriptPaths setObject:path forKey:[NSString stringWithFormat:@"%@.%@", major, minor]];
@@ -222,6 +212,21 @@
 - (NSString *)getStringFromScriptPath:(NSString *)path {
     NSString *bundledPath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] bundlePath], path];
     return [NSString stringWithContentsOfFile:bundledPath encoding:NSUTF8StringEncoding error:nil];
+}
+
+// This method calls the existing database and pulls the last verion
+- (double)getCurrentDatabaseVersion {
+    double returnValue = -1;
+
+    [_database open];
+    FMResultSet *result = [_database executeQuery:@"SELECT databaseVersion FROM Version ORDER BY versionID DESC LIMIT 1;"];
+    if ([result next]) {
+        returnValue = [result doubleForColumnIndex:0];
+    }
+    [result close];
+    [_database close];
+    
+    return returnValue;
 }
 
 @end
