@@ -43,6 +43,17 @@
     return sharedBRDatabase;
 }
 
+- (void)dropExistingDatabase:(NSString *)databaseName {
+    NSString *dbPath = [self getDatabasePathWithDatabaseName:databaseName];
+    
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:dbPath error:&error];
+    
+    if (error) {
+        NSLog(@"There was an error deleting the database.");
+    }
+}
+
 - (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion withSuccess:(void (^)())success {
     // 1 - Set Version
     _databaseVersion = databaseVersion;

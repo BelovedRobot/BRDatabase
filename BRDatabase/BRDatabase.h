@@ -25,6 +25,7 @@
 @property (strong) NSDictionary *scripts;
 
 + (id)sharedBRDatabase;
+- (void)dropExistingDatabase:(NSString *)databaseName;
 - (void)initializeWithDatabaseName:(NSString *)databaseName withDatabaseVersion:(float)databaseVersion withSuccess:(void (^)())success;
 
 @end

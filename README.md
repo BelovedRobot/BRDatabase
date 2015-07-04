@@ -47,3 +47,9 @@ There are several specific things that must be done to properly upgrade a databa
     BRDatabase *database = [BRDatabase sharedBRDatabase];
     [database initializeWithDatabaseName:@"Example.sqlite" withDatabaseVersion:1.1 withSuccess:nil];
 ```
+
+### Usage Example - Using BRDatabase to retrieve instances of FMDB.DatabaseQueue and FMDB.Database
+```Objective-C
+    self.databaseQueue  = [[BRDatabase sharedBRDatabase] databaseQueue];
+    self.database  = [[BRDatabase sharedBRDatabase] database]; // Not recommended, as a single-ton instance this will likely cause deadlocks
+```
