@@ -30,7 +30,6 @@
 @synthesize database = _database;
 @synthesize databaseQueue = _databaseQueue;
 @synthesize databasePath = _databasePath;
-@synthesize databaseName = _databaseName;
 @synthesize databaseVersion = _databaseVersion;
 @synthesize scripts = _scripts;
 

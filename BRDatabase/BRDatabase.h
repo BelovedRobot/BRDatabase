@@ -20,7 +20,6 @@
 @property (strong) FMDatabase *database;
 @property (strong) FMDatabaseQueue *databaseQueue;
 @property (strong) NSString *databasePath;
-@property (strong) NSString *databaseName;
 @property float databaseVersion;
 @property (strong) NSDictionary *scripts;
 
