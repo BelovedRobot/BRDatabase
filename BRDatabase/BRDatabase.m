@@ -23,7 +23,7 @@
 
 #import "BRDatabase.h"
 #import "FMDatabaseQueue.h"
-#import "FMDatabase+BRDatabaseExtensions.h"
+#import "FMDB.h"
 
 @implementation BRDatabase
 
@@ -74,7 +74,7 @@
         // Execute Success Block
         if (success)
             success();
-
+        
         NSLog(@"Database version is %.01f", [self getCurrentDatabaseVersion]);
         return;
     }
@@ -106,7 +106,7 @@
 // installation script is run against it.
 - (FMDatabase *)initializeFMDatabaseInstance {
     FMDatabase* database;
-
+    
     // If the file does not exist then this is a new installation. We need to run the install script.
     BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:_databasePath];
     if (!fileExists) {
@@ -116,14 +116,13 @@
         
         if ([database open]) {
             NSLog(@"Opening the new db was successful");
-        
+            
             // Get the Database Install
             NSString *installScript = [self getStringFromScriptPath:[_scripts objectForKey:@"0.0"]];
             
-            NSError *error;
-            [database executeBatchWithSqlScript:installScript outError:&error];
-            if (error != nil) {
-                NSLog(@"Update failed with error: %@", [error localizedDescription]);
+            bool success = [database executeStatements:installScript];
+            if (!success) {
+                NSLog(@"Update failed");
             }
         }
         
@@ -137,7 +136,7 @@
 // This method executes a script on the current database to determine the version and then compares
 // it to the version specified by the property "databaseVersion".
 - (BOOL)databaseDoesNeedUpgradeFromVersion:(float *)actualDatabaseVersion {
-
+    
     // For each version of the database we insert a row, if the version of the latest is less than the
     // version hard specified by this file then we need an upgrade.
     *actualDatabaseVersion = [self getCurrentDatabaseVersion];
@@ -170,10 +169,9 @@
         
         NSString *upgradeScript = [self getStringFromScriptPath:[_scripts objectForKey:version]];
         
-        NSError *error;
-        [_database executeBatchWithSqlScript:upgradeScript outError:&error];
-        if (error != nil)
-            NSLog(@"Update failed with error: %@", [error localizedDescription]);
+        bool success = [_database executeStatements:upgradeScript];
+        if (!success)
+            NSLog(@"Update failed.");
         
         [_database close];
     }
@@ -195,7 +193,7 @@
     
     // Parse each path
     for (NSString *path in scripts) {
-
+        
         // Check for Install Script
         NSRange range = [path rangeOfString:@"DatabaseInstall"];
         if (range.location != NSNotFound) {
@@ -214,7 +212,7 @@
         
         [scriptPaths setObject:path forKey:[NSString stringWithFormat:@"%@.%@", major, minor]];
     }
-
+    
     return [NSDictionary dictionaryWithDictionary:scriptPaths];
 }
 
@@ -227,7 +225,7 @@
 // This method calls the existing database and pulls the last verion
 - (double)getCurrentDatabaseVersion {
     double returnValue = -1;
-
+    
     [_database open];
     FMResultSet *result = [_database executeQuery:@"SELECT databaseVersion FROM Version ORDER BY versionID DESC LIMIT 1;"];
     if ([result next]) {
